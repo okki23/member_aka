@@ -1,0 +1,5 @@
+alert expired 
+-master (member,employee,card,uom,account)
+for member-> create barcode)
+
+-

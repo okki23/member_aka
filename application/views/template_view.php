@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AKAGYM Fitness Application</title>
+    <title>Membership AKAGYM</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('assets/backend/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -20,6 +20,29 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url('assets/backend/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this page -->
+    <link href="<?php echo base_url('assets/backend/'); ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+     <!-- Bootstrap core JavaScript-->
+     <script src="<?php echo base_url('assets/backend/'); ?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url('assets/backend/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="<?php echo base_url('assets/backend/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('assets/backend/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="<?php echo base_url('assets/backend/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="<?php echo base_url('assets/backend/'); ?>js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="<?php echo base_url('assets/backend/'); ?>vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="<?php echo base_url('assets/backend/'); ?>js/demo/chart-area-demo.js"></script>
+    <script src="<?php echo base_url('assets/backend/'); ?>js/demo/chart-pie-demo.js"></script>
 </head>
 
 <body id="page-top">
@@ -31,109 +54,90 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('dashboard'); ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-dumbbell"></i>
-</div>
-                <div class="sidebar-brand-text mx-3">AKAGYM</div>
+                <i class="fas fa-walking"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Member AKAGYM</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
+           
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Menu
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
+            
+          
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsemaster"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-database"></i>
-                    <span>Master</span>
+                    <i class="fas fa-database fa-cog"></i>
+                    <span>Master Data</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('satuan'); ?>">Satuan</a>
+                <div id="collapsemaster" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded"> 
                         <a class="collapse-item" href="<?php echo base_url('member'); ?>">Member</a>
-                        <a class="collapse-item" href="<?php echo base_url('keanggotaan'); ?>">Keanggotaan</a>
-                        <a class="collapse-item" href="<?php echo base_url('pembayaran'); ?>">Pembayaran</a>
-                        <a class="collapse-item" href="<?php echo base_url('kartu_bayar'); ?>">Kartu Debit/CC</a>
+                        <a class="collapse-item" href="<?php echo base_url('personaltrainee'); ?>">Personal Trainee</a>
+                        <a class="collapse-item" href="<?php echo base_url('satuan'); ?>">Satuan</a>
+                        <a class="collapse-item" href="<?php echo base_url('paket'); ?>">Paket</a>
+                        <a class="collapse-item" href="<?php echo base_url('stok'); ?>">Stock</a> 
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+           
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetransaction"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-server"></i>
+                    <i class="fas fa-clipboard-list"></i>
                     <span>Transaksi</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapsetransaction" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('pembelian_paket'); ?>">Pembelian</a>
-                    </div>
-                </div>
-            </li>
-
-             <!-- Nav Item - Utilities Collapse Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-address-card"></i>
-                    <span>Attendance</span>
-                </a>
-                <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('attendance'); ?>">Pembelian</a>
+                    <div class="bg-white py-2 collapse-inner rounded"> 
+                        <a class="collapse-item" href="<?php echo base_url('pos'); ?>">Point Of Sale</a>  
                     </div>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwos"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-file"></i>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-print"></i>
                     <span>Laporan</span>
                 </a>
-                <div id="collapseTwos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                <div id="collapseReport" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded"> 
+                        <a class="collapse-item" href="<?php echo base_url('closing_session'); ?>">Closing Session</a>  
+                        <a class="collapse-item" href="<?php echo base_url('log_closing'); ?>">Log Closing</a>  
                     </div>
+                    
                 </div>
             </li>
- 
-            
+
+  
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAccount"
+                    aria-expanded="true" aria-controls="collapseAccount">
+                    <i class="fas fa-user"></i>
+                    <span>Account</span>
+                </a>
+                <div id="collapseAccount" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded"> 
+                        <a class="collapse-item" href="<?php echo base_url('karyawan'); ?>">Karyawan</a>  
+                        <a class="collapse-item" href="<?php echo base_url('user_account'); ?>">User Account</a>  
+                    </div>
+                    
+                </div>
+            </li>
           
-
+ 
         </ul>
         <!-- End of Sidebar -->
 
@@ -152,18 +156,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <!-- <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div> -->
-                    </form>
+                     
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -191,8 +184,8 @@
                                 </form>
                             </div>
                         </li>
-
-                      
+ 
+                       
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -207,15 +200,14 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="<?php echo base_url('login/logout'); ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('user/profile'); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profil
-                                </a>
-                                
+                                </a> 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php echo base_url('login/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="<?php echo base_url('logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Keluar
+                                    Logout
                                 </a>
                             </div>
                         </li>
@@ -227,141 +219,13 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+ 
+                    <?php 
+                        echo $this->load->view($konten);
+                    ?> 
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Selamat Datang Administrator !</h1>
-                        
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Member</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Personal Trainee</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Service
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Income AKAGYM</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                       
-                    </div>
-
-                    <!-- Content Row -->
-                  
-
+ 
+                    
                 </div>
                 <!-- /.container-fluid -->
 
@@ -372,7 +236,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; AKAGYM Fitness | 2022</span>
+                        <span>Copyright &copy; AKAGYM Fitness 2022</span>
                     </div>
                 </div>
             </footer>
@@ -395,36 +259,21 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Anda Yakin ingin keluar?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Klik "Keluar" jika anda yakin ingin keluar dari sesi anda.</div>
+                <div class="modal-body">Klik logout untuk keluar dari sistem</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?php echo base_url('login/logout'); ?>">Keluar</a>
+                    <a class="btn btn-primary" href="<?php echo base_url('login/logout'); ?>">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url('assets/backend/'); ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/backend/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url('assets/backend/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url('assets/backend/'); ?>js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="<?php echo base_url('assets/backend/'); ?>vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="<?php echo base_url('assets/backend/'); ?>js/demo/chart-area-demo.js"></script>
-    <script src="<?php echo base_url('assets/backend/'); ?>js/demo/chart-pie-demo.js"></script>
+   
 
 </body>
 

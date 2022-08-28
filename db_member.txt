@@ -1,0 +1,3 @@
+db : akagymne_member
+user : akagymne_member2022
+pass : memberaka2022_OKE!@
